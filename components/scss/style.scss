@@ -12,7 +12,7 @@
 
 //--------------------------Color
 
-$offWhite:			#E4F1FE;
+$offWhite:			#f9f9f9;
 $black:				#303841;
 $red:				#EA5455;
 $grey:				#3A4750;
@@ -82,6 +82,10 @@ $max:				1440px;
 
 //--------------------------------------------------Styles
 
+*{
+	box-sizing:border-box;
+}
+
 body{
 	font-family: $body;
 	height:10000px;
@@ -126,9 +130,7 @@ h6{
 	margin-bottom: $sm;
 }
 
-.wrapper{
-	@include container(1140px);
-}
+
 
 .content{
 	background-color:$white;
@@ -158,10 +160,16 @@ h6{
 //---------------------------------------------------Header Styles
 
 @include breakpoint($max){
+	.wrapper{
+		@include container(1140px);
+	}
+
 	header{
 		padding: $tny 0;
 		box-shadow:1px 1px 10px $lightGrey;
+		background-color: $white;
 		position:fixed;
+		top:0;
 		width:100%;
 		@include transition(0.2s ease-in-out);
 		.logo{
@@ -229,6 +237,119 @@ h6{
 				display:block;
 				margin:1px auto;
 			}
+		}
+	}//end of header
+
+	.content{
+		margin-top:$reg;
+	}
+
+	.home{
+
+	}
+
+	.shown{
+		width:900px;
+		float:left;
+		margin-bottom:$reg;
+		img{
+			width:100%;
+		}
+		.title{
+			@include headline();
+			margin:$sm 0;
+			color:$black;
+		}
+		.quick-description{
+			margin-bottom: $tny;
+		}
+	}
+
+	.author{
+		span{
+			@include copy();
+			letter-spacing: 0px;
+			font-style:italic;
+			text-transform: lowercase;
+			font-size:$smFontSize;
+		}
+	}
+
+	.featured-bar{
+		float:right;
+		width:$xxl + $lg;
+
+		li{
+			padding:$sm $reg;
+			@include copy();
+			font-size:$medFontSize;
+			overflow-y:hidden;
+			font-style:italic;
+			text-align:center;
+		}
+	}
+
+	.divide-line{
+		height:1px;
+		background-color:$lightGrey;
+		width:$xl;
+		margin:auto;
+	}
+
+	.popular{
+		clear:both;
+		width:900px;
+		float:left;
+
+		.pop-line{
+			@include accent();
+			text-align:center;
+			margin-bottom:$reg;
+
+			span{
+				display:inline-block;
+				height:1px;
+				background-color: $black;
+				width:$xl;
+				margin:$mic $sm;
+			}
+		}
+
+		.article{
+			@include span(2);
+			padding:$tny;
+
+			img{
+				width:100%;
+			}
+
+			.title{
+				font-size: $medFontSize;
+				margin:$tny 0;
+			}
+
+			&:nth-child(even){
+				@include last();
+			}
+		}
+	}
+
+	.right-banner-ad{
+		width:$xxl + $reg;
+		height:400px;
+		background-color:$black;
+		float:right;
+	}
+
+	.comment-note{
+		img{
+			width:$reg;
+			display:inline-block;
+			margin-bottom: -($tny);
+			margin-right:$tny;
+		}
+		span{
+			@include headline();
 		}
 	}
 }

@@ -4,7 +4,7 @@ S.ready(function(){
 
 
 
-	//--------------------------------Header Events
+	//-----------------------------------------------------------------------------------------Header Events
 
 	s('.section-menu').hover(function(){
 		s('.section-nav').addClass('active');
@@ -46,7 +46,7 @@ S.ready(function(){
 
 		// If they scrolled down and are past the navbar, add class .nav-up.
 	    // This is necessary so you never see what is "behind" the navbar.
-	    if (st > lastScrollTop && st > navbarHeight){
+	    if (st > lastScrollTop && st > navbarHeight && st > 250){
 	        // Scroll Down
 	        s('header').removeClass().addClass('nav-up');
 	    } else {
@@ -58,4 +58,14 @@ S.ready(function(){
 	    
 	    lastScrollTop = st;
 	}
+
+	//-----------------------------------------------------------------Newsletter popup
+
+	var timeOnPageStart = Date.now();
+
+
+	window.addEventListener('mouseout', function(){
+		if(Date.now() - timeOnPageStart > 6000)
+			console.log('yes');
+	});
 });
