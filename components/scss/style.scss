@@ -1,0 +1,257 @@
+//--------------------------------------------------Import
+@import "../lib/bourbon/app/assets/stylesheets/bourbon";
+@import "../lib/breakpoint-sass/stylesheets/breakpoint";
+@import "../lib/susy/sass/susy";
+
+@import "reset";
+
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700|Droid+Serif:400,400italic,700,700italic|Montserrat:400,700);
+
+
+//--------------------------------------------------Variables
+
+//--------------------------Color
+
+$offWhite:			#E4F1FE;
+$black:				#303841;
+$red:				#EA5455;
+$grey:				#3A4750;
+$lightGrey:			#ccc;
+$white:				#FFF;
+
+//-------------------------Typeface
+
+$body:				'Droid Serif', serif;
+$headline:			'Inconsolata';
+$accent:			'Montserrat', serif;
+
+//-------------------------Spacing
+
+$mic:				3px;
+$tny:				8px;
+$sm:				15px;
+$reg:				30px;
+$med:				45px;
+$lg:				60px;
+$xl:				90px;
+$xxl:				120px;
+
+//------------------------Font Size
+
+$minFontSize:		9px;
+$smFontSize:		12px;
+$midFontSize:		14px;
+$regFontSize:		16px;
+$medFontSize:		22px;
+$lgFontSize:		30px;
+$xlFontSize:		48px;
+
+//-----------------------Breakpoints
+
+$max:				1440px;
+
+
+
+
+
+//--------------------------------------------------Mixins
+
+@mixin copy(){
+	color:$grey;
+	line-height:1.8;
+	font-family: $body;
+}
+
+@mixin headline(){
+	color:$black;
+	line-height:1;
+	font-family: $headline;
+	letter-spacing:5px;
+	font-weight:700;
+	text-transform:uppercase;
+}
+
+@mixin accent(){
+	color:$black;
+	line-height:1;
+	font-family:$accent;
+	letter-spacing: 4px;
+	font-weight:700;
+	text-transform: uppercase;
+}
+
+//--------------------------------------------------Styles
+
+body{
+	font-family: $body;
+	height:10000px;
+}
+
+p{
+	@include copy();
+	margin-bottom:$reg;
+}
+
+h1,h2,h3,h4,h5,h6{
+	@include headline();
+}
+
+h1{
+	font-size:$xlFontSize;
+	margin-bottom:$reg;
+}
+
+h2{
+	font-size:$lgFontSize;
+	margin-bottom: $reg;
+}
+
+h3{
+	font-size:$medFontSize;
+	margin-bottom: $sm;
+}
+
+h4{
+	font-size:$regFontSize;
+	margin-bottom: $sm;
+}
+
+h5{
+	font-size:$smFontSize;
+	margin-bottom: $sm;
+}
+
+h6{
+	font-size:$midFontSize;
+	margin-bottom: $sm;
+}
+
+.wrapper{
+	@include container(1140px);
+}
+
+.content{
+	background-color:$white;
+	padding:$reg;
+	margin-top:$sm;
+
+	.date{
+		color:$grey;
+	}
+}
+
+.portion{
+	position:relative;
+	&.left{
+		float:left;
+		width:580px;
+	}
+	&.right{
+		float:right;
+		width:440px;
+	}
+	&.full{
+		width:100%;
+	}
+}
+
+//---------------------------------------------------Header Styles
+
+@include breakpoint($max){
+	header{
+		padding: $tny 0;
+		box-shadow:1px 1px 10px $lightGrey;
+		position:fixed;
+		width:100%;
+		@include transition(0.2s ease-in-out);
+		.logo{
+			width:250px;
+			margin-top:$mic;
+			@include transition(0.2s ease-in-out);
+		}
+
+		nav{
+			float:right;
+
+			li{
+				display:inline-block;
+				cursor:pointer;
+				margin-right:$med;
+				padding:$tny;
+				@include accent();
+				font-size:$midFontSize;
+				position:relative;
+			}
+		}
+
+		a{
+			text-decoration:none;
+			color:inherit;
+		}
+
+		.section-menu.active{
+			background:$white;
+			box-shadow:1px 1px 3px $lightGrey;
+		}
+
+		.section-nav{
+			background-color: $white;
+			padding:$sm;
+			display:none;
+			box-shadow:1px 3px 3px $lightGrey;
+			@include transition(opacity 0.2s ease-in);
+			opacity:0;
+
+			li{
+				display:block;
+				margin:$sm 0;
+				font-size:$smFontSize;
+			}
+
+			&.active{
+				display:block;
+				position:absolute;
+				opacity:1;
+				left:0
+			}
+		}
+
+		&.nav-up{
+			height:$sm;
+			padding:0;
+
+			nav{
+				visibility: hidden;
+			}
+
+			.logo{
+				height:$smFontSize;
+				display:block;
+				margin:1px auto;
+			}
+		}
+	}
+}
+
+
+
+
+.image{
+	float:right;
+	margin-bottom:$xxl;
+
+	img{
+		max-width:100%;
+	}
+
+	.caption{
+		font-family:$body;
+		font-style:italic;
+		margin-top:$tny;
+		display:block;
+		color:$grey;
+		font-size:$smFontSize;
+	}
+}
+
+
