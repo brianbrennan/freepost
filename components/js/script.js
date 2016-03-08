@@ -52,7 +52,7 @@ S.ready(function(){
 	    } else {
 	        // Scroll Up
 	        if(st + window.innerHeight < docHeight) {
-	            s('header').removeClass().addClass('nav-down');
+	        	s('header').removeClass().addClass('nav-down');
 	        }
 	    }
 	    
@@ -68,4 +68,34 @@ S.ready(function(){
 		if(Date.now() - timeOnPageStart > 6000)
 			console.log('yes');
 	});
+
+	//-----------------------------------------------------------------Article Collection Height
+
+	//THIS CHUNK OF CODE BELOW IS SOLVED BY SIMPLY ADDING MIN HEIGHT TO ARTICLES
+	// var i = 0;
+
+	// s('.collection').each(function(){
+	// 	if(window.innerWidth > 800){
+	// 		console.log(s(s('.collection').l[i]).selector);
+
+	// 		var maxArtHeight = 0;
+	// 		var maxArtHeightPost = 0;
+
+	// 		var numArticles = s(s('.collection').l[i]).l[0].children.length;
+
+	// 		for(var j = 1; j < numArticles; j++){
+	// 			var articleHeight = s(s('.collection').l[i]).l[0].children[j].offsetHeight;
+	// 			if(articleHeight > maxArtHeight){
+	// 				maxArtHeight = articleHeight;
+	// 				maxArtHeightPos;
+	// 			}
+	// 		}
+
+	// 		console.log(s(s(s('.collection').l[i]).selector + ' > .article'));
+
+	// 		s(s(s('.collection').l[i]).selector + ' > .article').css('height',maxArtHeight + 'px');
+
+	// 		i++;
+	// 	}
+	// });
 });

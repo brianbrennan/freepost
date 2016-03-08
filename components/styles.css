@@ -124,7 +124,6 @@ h6 {
       float: right; }
       header nav li {
         display: inline-block;
-        cursor: pointer;
         margin-right: 45px;
         padding: 8px;
         color: #303841;
@@ -138,6 +137,8 @@ h6 {
     header a {
       text-decoration: none;
       color: inherit; }
+    header .section-menu {
+      cursor: pointer; }
     header .section-menu.active {
       background: #FFF;
       box-shadow: 1px 1px 3px #ccc; }
@@ -161,7 +162,8 @@ h6 {
         left: 0; }
     header.nav-up {
       height: 15px;
-      padding: 0; }
+      padding: 0;
+      overflow: hidden; }
       header.nav-up nav {
         visibility: hidden; }
       header.nav-up .logo {
@@ -212,11 +214,11 @@ h6 {
     background-color: #ccc;
     width: 90px;
     margin: auto; }
-  .popular {
+  .collection {
     clear: both;
     width: 900px;
     float: left; }
-    .popular .pop-line {
+    .collection .pop-line {
       color: #303841;
       line-height: 1;
       font-family: 'Montserrat', serif;
@@ -225,32 +227,41 @@ h6 {
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 30px; }
-      .popular .pop-line span {
+      .collection .pop-line span {
         display: inline-block;
         height: 1px;
         background-color: #303841;
         width: 90px;
         margin: 3px 15px; }
-    .popular .article {
+    .collection .article {
       width: 47.3684210526%;
       float: left;
       margin-right: 5.2631578947%;
-      padding: 8px; }
-      .popular .article img {
+      padding: 8px;
+      min-height: 330px;
+      clear: right; }
+      .collection .article img {
         width: 100%; }
-      .popular .article .title {
+      .collection .article .title {
         font-size: 22px;
         margin: 8px 0; }
-      .popular .article:nth-child(even) {
+      .collection .article .author {
+        margin-bottom: 8px; }
+      .collection .article:nth-child(odd) {
         float: right;
         margin-right: 0; }
+    .collection .comment-note {
+      font-size: 12px; }
+      .collection .comment-note img {
+        width: 23px;
+        margin-top: -3px; }
   .right-banner-ad {
     width: 150px;
     height: 400px;
     background-color: #303841;
     float: right; }
   .comment-note img {
-    width: 30px;
+    max-width: 30px;
     display: inline-block;
     margin-bottom: -8px;
     margin-right: 8px; }
