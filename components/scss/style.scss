@@ -80,6 +80,31 @@ $max:				1440px;
 	text-transform: uppercase;
 }
 
+@mixin textInput(){
+	font-size:$regFontSize;
+	font-family:$accent;
+	letter-spacing: 4px;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:$tny $sm;
+	border:2px solid $lightGrey;
+	@include transition(border-color 0.2s);
+
+	&:focus{
+		outline:none;
+		border-color:$grey;
+	}
+
+}
+
+@mixin submitButton(){
+	background-color:$black;
+	@include accent();
+	color:$white;
+	border:none;
+	padding:$sm;
+}
+
 //--------------------------------------------------Styles
 
 *{
@@ -88,7 +113,6 @@ $max:				1440px;
 
 body{
 	font-family: $body;
-	height:10000px;
 }
 
 p{
@@ -130,32 +154,40 @@ h6{
 	margin-bottom: $sm;
 }
 
+blockquote{
+	@include copy();
+	font-size:$medFontSize;
+	font-style:italic;
+	color:$black;
+	margin-left:$reg;
+	padding-left:$reg;
+	border-left:1px solid $lightGrey;
+	margin-bottom:$reg;
+}
+
+input[type="text"]{
+	@include textInput();
+}
+
+input[type="submit"]{
+	@include submitButton();
+}
+
 
 
 .content{
 	background-color:$white;
 	padding:$reg;
 	margin-top:$sm;
+	position:relative;
+	z-index:0;
 
 	.date{
 		color:$grey;
 	}
 }
 
-.portion{
-	position:relative;
-	&.left{
-		float:left;
-		width:580px;
-	}
-	&.right{
-		float:right;
-		width:440px;
-	}
-	&.full{
-		width:100%;
-	}
-}
+
 
 //---------------------------------------------------Header Styles
 
@@ -171,6 +203,8 @@ h6{
 		position:fixed;
 		top:0;
 		width:100%;
+		z-index:10;
+
 		@include transition(0.2s ease-in-out);
 		.logo{
 			width:250px;
@@ -304,6 +338,7 @@ h6{
 		clear:both;
 		width:900px;
 		float:left;
+		margin-bottom: $reg;
 
 		.pop-line{
 			@include accent();
@@ -321,7 +356,7 @@ h6{
 
 		.article{
 			@include span(2);
-			padding:$tny;
+			padding:$tny $tny $sm $tny;
 			min-height:330px;
 			clear:right;
 
@@ -369,6 +404,213 @@ h6{
 		}
 		span{
 			@include headline();
+		}
+	}
+
+	footer{
+		background-color: $offWhite;
+		padding:$reg;
+
+		ul{
+			display:inline-block;
+			@include span(1);
+			margin-left:$reg;
+
+			&:nth-child(4n){
+				@include last();
+			}
+		}
+
+		li{
+			display:block;
+			@include copy();
+			margin-bottom:$sm;
+		}
+
+		.copyright{
+			display:block;
+			clear:both;
+			font-size:$minFontSize;
+			text-align:center;
+		}
+	}
+
+	//-------------------------------------------------------------Archive Page
+
+	.archive{
+		.article{
+			clear:both;
+			padding:$reg 0;
+
+			img{
+				@include span(2);
+			}
+
+			.title{
+				margin-bottom:$sm;
+			}
+
+			.comment-note{
+				img{
+					margin-right:$sm;
+				}
+			}
+
+		}
+	}
+
+	//-------------------------------------------------------------Category Page
+
+	.category{
+		.article{
+			@include span(2);
+			min-height:370px;
+			margin-bottom: $reg;
+
+			&:nth-child(even){
+				@include last();
+			}
+
+			img{
+				max-width: 100%;
+			}
+
+			.title{
+				margin:$tny 0;
+			}
+
+			.comment-note img{
+				width:$sm + $tny;
+			}
+
+			&.featured{
+				@include span(4);
+
+				.comment-note img{
+					width:$reg;
+				}
+			}
+		}
+
+
+	}
+
+	.page-title{
+		@include accent();
+		text-align:center;
+	}
+
+	.sec-line{
+		height:1px;
+		width:$xl;
+		background-color:$black;
+		display:inline-block;
+		margin:$tny $sm;
+	}
+
+	//----------------------------------------------------------Page Styles
+
+	.portion{
+		position:relative;
+		&.left{
+			float:left;
+			width:580px;
+		}
+		&.right{
+			float:right;
+			width:440px;
+		}
+		&.full{
+			width:100%;
+		}
+	}
+
+	.page{
+		.author{
+			font-size:$regFontSize;
+		}
+
+		.date{
+			top: 45px;
+			right: 30px;
+			position: absolute;
+		}
+	}
+
+	//--------------------------------------------------------Newsletter Popup
+
+	.overlay{
+		height:100vh;
+		width:100vw;
+		position:fixed;
+		top:0;
+		z-index:100;
+		background-color: rgba($black,0.8);
+		visibility: hidden;
+		opacity:0;
+		@include transition(0.3s);
+
+		&.active{
+			opacity:1;
+			visibility: visible;
+		}
+
+		.panel{
+			background-color:$white;
+			padding:$sm;
+			width:900px;
+			height:450px;
+			margin:auto;
+			margin-top:calc(50vh - 300px);
+			position:relative;
+
+			.close{
+				@include accent();
+				font-size:$medFontSize;
+				position:absolute;
+				top:$sm;
+				right:$sm;
+				cursor:pointer;
+			}
+		}
+
+		h4{
+			font-size:$lgFontSize;
+			width:700px;
+			text-align:center;
+			margin:auto;
+
+			span{
+				@include copy();
+				font-size:$regFontSize;
+				font-style:italic;
+				text-transform:lowercase;
+				display:block;
+				margin:$sm;
+			}
+
+			.big{
+				font-size:$xlFontSize;
+				@include accent();
+				letter-spacing:10px;
+				font-style:normal;
+				margin:0;
+			}
+
+			.sec-line{
+				display:inline-block;
+				margin:$sm 0;
+			}
+		}
+
+		form{
+			display:block;
+			width:450px;
+			margin:$med auto 0 auto;
+			input{
+				width:100%;
+				margin-bottom:$sm;
+			}
 		}
 	}
 }

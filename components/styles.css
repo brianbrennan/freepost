@@ -36,8 +36,7 @@ table {
   box-sizing: border-box; }
 
 body {
-  font-family: 'Droid Serif', serif;
-  height: 10000px; }
+  font-family: 'Droid Serif', serif; }
 
 p {
   color: #3A4750;
@@ -77,23 +76,53 @@ h6 {
   font-size: 14px;
   margin-bottom: 15px; }
 
+blockquote {
+  color: #3A4750;
+  line-height: 1.8;
+  font-family: 'Droid Serif', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #303841;
+  margin-left: 30px;
+  padding-left: 30px;
+  border-left: 1px solid #ccc;
+  margin-bottom: 30px; }
+
+input[type="text"] {
+  font-size: 16px;
+  font-family: 'Montserrat', serif;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  border: 2px solid #ccc;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  transition: border-color 0.2s; }
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #3A4750; }
+
+input[type="submit"] {
+  background-color: #303841;
+  color: #303841;
+  line-height: 1;
+  font-family: 'Montserrat', serif;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFF;
+  border: none;
+  padding: 15px; }
+
 .content {
   background-color: #FFF;
   padding: 30px;
-  margin-top: 15px; }
+  margin-top: 15px;
+  position: relative;
+  z-index: 0; }
   .content .date {
     color: #3A4750; }
-
-.portion {
-  position: relative; }
-  .portion.left {
-    float: left;
-    width: 580px; }
-  .portion.right {
-    float: right;
-    width: 440px; }
-  .portion.full {
-    width: 100%; }
 
 @media  (min-width: 1440px) {
   .wrapper {
@@ -111,6 +140,7 @@ h6 {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 10;
     -webkit-transition: 0.2s ease-in-out;
     -moz-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out; }
@@ -217,7 +247,8 @@ h6 {
   .collection {
     clear: both;
     width: 900px;
-    float: left; }
+    float: left;
+    margin-bottom: 30px; }
     .collection .pop-line {
       color: #303841;
       line-height: 1;
@@ -237,7 +268,7 @@ h6 {
       width: 47.3684210526%;
       float: left;
       margin-right: 5.2631578947%;
-      padding: 8px;
+      padding: 8px 8px 15px 8px;
       min-height: 330px;
       clear: right; }
       .collection .article img {
@@ -271,7 +302,163 @@ h6 {
     font-family: 'Inconsolata';
     letter-spacing: 5px;
     font-weight: 700;
-    text-transform: uppercase; } }
+    text-transform: uppercase; }
+  footer {
+    background-color: #f9f9f9;
+    padding: 30px; }
+    footer ul {
+      display: inline-block;
+      width: 21.0526315789%;
+      float: left;
+      margin-right: 5.2631578947%;
+      margin-left: 30px; }
+      footer ul:nth-child(4n) {
+        float: right;
+        margin-right: 0; }
+    footer li {
+      display: block;
+      color: #3A4750;
+      line-height: 1.8;
+      font-family: 'Droid Serif', serif;
+      margin-bottom: 15px; }
+    footer .copyright {
+      display: block;
+      clear: both;
+      font-size: 9px;
+      text-align: center; }
+  .archive .article {
+    clear: both;
+    padding: 30px 0; }
+    .archive .article img {
+      width: 47.3684210526%;
+      float: left;
+      margin-right: 5.2631578947%; }
+    .archive .article .title {
+      margin-bottom: 15px; }
+    .archive .article .comment-note img {
+      margin-right: 15px; }
+  .category .article {
+    width: 47.3684210526%;
+    float: left;
+    margin-right: 5.2631578947%;
+    min-height: 370px;
+    margin-bottom: 30px; }
+    .category .article:nth-child(even) {
+      float: right;
+      margin-right: 0; }
+    .category .article img {
+      max-width: 100%; }
+    .category .article .title {
+      margin: 8px 0; }
+    .category .article .comment-note img {
+      width: 23px; }
+    .category .article.featured {
+      width: 100%;
+      float: left;
+      margin-left: 0;
+      margin-right: 0; }
+      .category .article.featured .comment-note img {
+        width: 30px; }
+  .page-title {
+    color: #303841;
+    line-height: 1;
+    font-family: 'Montserrat', serif;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center; }
+  .sec-line {
+    height: 1px;
+    width: 90px;
+    background-color: #303841;
+    display: inline-block;
+    margin: 8px 15px; }
+  .portion {
+    position: relative; }
+    .portion.left {
+      float: left;
+      width: 580px; }
+    .portion.right {
+      float: right;
+      width: 440px; }
+    .portion.full {
+      width: 100%; }
+  .page .author {
+    font-size: 16px; }
+  .page .date {
+    top: 45px;
+    right: 30px;
+    position: absolute; }
+  .overlay {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(48, 56, 65, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    transition: 0.3s; }
+    .overlay.active {
+      opacity: 1;
+      visibility: visible; }
+    .overlay .panel {
+      background-color: #FFF;
+      padding: 15px;
+      width: 900px;
+      height: 450px;
+      margin: auto;
+      margin-top: calc(50vh - 300px);
+      position: relative; }
+      .overlay .panel .close {
+        color: #303841;
+        line-height: 1;
+        font-family: 'Montserrat', serif;
+        letter-spacing: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 22px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer; }
+    .overlay h4 {
+      font-size: 30px;
+      width: 700px;
+      text-align: center;
+      margin: auto; }
+      .overlay h4 span {
+        color: #3A4750;
+        line-height: 1.8;
+        font-family: 'Droid Serif', serif;
+        font-size: 16px;
+        font-style: italic;
+        text-transform: lowercase;
+        display: block;
+        margin: 15px; }
+      .overlay h4 .big {
+        font-size: 48px;
+        color: #303841;
+        line-height: 1;
+        font-family: 'Montserrat', serif;
+        letter-spacing: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        font-style: normal;
+        margin: 0; }
+      .overlay h4 .sec-line {
+        display: inline-block;
+        margin: 15px 0; }
+    .overlay form {
+      display: block;
+      width: 450px;
+      margin: 45px auto 0 auto; }
+      .overlay form input {
+        width: 100%;
+        margin-bottom: 15px; } }
 
 .image {
   float: right;

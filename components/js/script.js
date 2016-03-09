@@ -62,11 +62,28 @@ S.ready(function(){
 	//-----------------------------------------------------------------Newsletter popup
 
 	var timeOnPageStart = Date.now();
+	var panelShown = false
+
+	// Exit intent
+	function addEvent(obj, evt, fn) {
+		if (obj.addEventListener) {
+			obj.addEventListener(evt, fn, false);
+		}
+		else if (obj.attachEvent) {
+			obj.attachEvent("on" + evt, fn);
+		}
+	}
+	// Exit intent trigger
+	addEvent(document, 'mouseout', function(evt) {
+		if (evt.toElement == null && evt.relatedTarget == null && !panelShown ) {
+			s('.overlay').addClass('active');
+			panelShown = true;
+		};
+	});
 
 
-	window.addEventListener('mouseout', function(){
-		if(Date.now() - timeOnPageStart > 6000)
-			console.log('yes');
+	s('.panel .close').on('click', function(){
+		s('.overlay').removeClass('active');
 	});
 
 	//-----------------------------------------------------------------Article Collection Height
