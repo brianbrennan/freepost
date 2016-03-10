@@ -389,6 +389,57 @@ input[type="submit"] {
     top: 45px;
     right: 30px;
     position: absolute; }
+  .comments {
+    clear: both;
+    padding: 30px; }
+    .comments h5 {
+      color: #303841;
+      line-height: 1;
+      font-family: 'Montserrat', serif;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 22px;
+      margin-bottom: 30px; }
+    .comments .not-signed-in {
+      background-color: #ccc;
+      color: #303841;
+      padding: 8px;
+      margin-top: -15px;
+      margin-bottom: 15px; }
+    .comments .comment .username {
+      color: #3A4750;
+      line-height: 1.8;
+      font-family: 'Droid Serif', serif;
+      font-weight: 700; }
+    .comments .comment .comment-content {
+      margin-bottom: 15px; }
+    .comments .comment .respond-bar {
+      color: #303841;
+      line-height: 1;
+      font-family: 'Montserrat', serif;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 23px; }
+    .comments .comment .replies {
+      border-left: 1px solid #3A4750; }
+      .comments .comment .replies .comment {
+        margin-left: 30px; }
+    .comments .show-more {
+      color: #303841;
+      line-height: 1;
+      font-family: 'Montserrat', serif;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      color: #FFF;
+      background-color: #303841;
+      width: 240px;
+      margin: auto;
+      padding: 8px; }
   .overlay {
     height: 100vh;
     width: 100vw;

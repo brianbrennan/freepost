@@ -537,6 +537,61 @@ input[type="submit"]{
 		}
 	}
 
+	//--------------------------------------------------------Comments
+
+	.comments{
+		clear:both;
+		padding:$reg;
+
+		h5{
+			@include accent();
+			font-size:$medFontSize;
+			margin-bottom:$reg;
+		}
+
+		.not-signed-in{
+			background-color: $lightGrey;
+			color:$black;
+			padding:$tny;
+			margin-top:-($sm);
+			margin-bottom: $sm;
+		}
+
+		.comment{
+			.username{
+				@include copy();
+				font-weight:700;
+			}
+
+			.comment-content{
+				margin-bottom:$sm;
+			}
+
+			.respond-bar{
+				@include accent();
+				font-size:$smFontSize;
+				margin-bottom:$sm + $tny;
+			}
+
+			.replies{
+				border-left:1px solid $grey;
+				.comment{
+					margin-left:$reg;
+				}
+			}
+		}
+
+		.show-more{
+			@include accent();
+			text-align:center;
+			color:$white;
+			background-color:$black;
+			width:$xxl + $xxl;
+			margin:auto;
+			padding:$tny;
+		}
+	}
+
 	//--------------------------------------------------------Newsletter Popup
 
 	.overlay{
