@@ -17,6 +17,7 @@ $black:				#303841;
 $red:				#EA5455;
 $grey:				#3A4750;
 $lightGrey:			#ccc;
+$lighterGrey:		#eee;
 $white:				#FFF;
 
 //-------------------------Typeface
@@ -408,7 +409,7 @@ input[type="submit"]{
 	}
 
 	footer{
-		background-color: $offWhite;
+		background-color: $lighterGrey;
 		padding:$reg;
 
 		ul{
@@ -550,11 +551,21 @@ input[type="submit"]{
 		}
 
 		.not-signed-in{
-			background-color: $lightGrey;
+			background-color: $lighterGrey;
 			color:$black;
 			padding:$tny;
 			margin-top:-($sm);
 			margin-bottom: $sm;
+		}
+
+		.signed-in-comment{
+			margin-bottom:$sm;
+			textarea{
+				width:600px;
+				display:block;
+				margin-bottom:$sm;
+				height:$xxl;
+			}
 		}
 
 		.comment{

@@ -304,7 +304,7 @@ input[type="submit"] {
     font-weight: 700;
     text-transform: uppercase; }
   footer {
-    background-color: #f9f9f9;
+    background-color: #eee;
     padding: 30px; }
     footer ul {
       display: inline-block;
@@ -402,11 +402,18 @@ input[type="submit"] {
       font-size: 22px;
       margin-bottom: 30px; }
     .comments .not-signed-in {
-      background-color: #ccc;
+      background-color: #eee;
       color: #303841;
       padding: 8px;
       margin-top: -15px;
       margin-bottom: 15px; }
+    .comments .signed-in-comment {
+      margin-bottom: 15px; }
+      .comments .signed-in-comment textarea {
+        width: 600px;
+        display: block;
+        margin-bottom: 15px;
+        height: 120px; }
     .comments .comment .username {
       color: #3A4750;
       line-height: 1.8;
