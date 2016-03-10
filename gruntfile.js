@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 				},
 				dist: { 
      		 	files: {                         // Dictionary of files
-        			'components/styles.css': 'components/scss/style.scss',       // 'destination': 'source'        			
+        			'style.css': 'components/scss/style.scss',       // 'destination': 'source'        			
         		}
         	}
 		}//sass
