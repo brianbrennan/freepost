@@ -413,7 +413,16 @@ input[type="submit"] {
         width: 600px;
         display: block;
         margin-bottom: 15px;
-        height: 120px; }
+        height: 120px;
+        color: #3A4750;
+        line-height: 1.8;
+        font-family: 'Droid Serif', serif;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        transition: 0.2s; }
+        .comments .signed-in-comment textarea:focus {
+          outline: none;
+          border-color: #303841; }
     .comments .comment .username {
       color: #3A4750;
       line-height: 1.8;
@@ -516,7 +525,17 @@ input[type="submit"] {
       margin: 45px auto 0 auto; }
       .overlay form input {
         width: 100%;
-        margin-bottom: 15px; } }
+        margin-bottom: 15px; }
+    .overlay .disclaimer {
+      color: #3A4750;
+      line-height: 1.8;
+      font-family: 'Droid Serif', serif;
+      font-style: italic;
+      text-align: center;
+      color: #3A4750;
+      position: absolute;
+      bottom: 15px;
+      width: 870px; } }
 
 .image {
   float: right;

@@ -565,6 +565,13 @@ input[type="submit"]{
 				display:block;
 				margin-bottom:$sm;
 				height:$xxl;
+				@include copy();
+				@include transition(0.2s);
+
+				&:focus{
+					outline:none;
+					border-color:$black;
+				}
 			}
 		}
 
@@ -677,6 +684,16 @@ input[type="submit"]{
 				width:100%;
 				margin-bottom:$sm;
 			}
+		}
+
+		.disclaimer{
+			@include copy();
+			font-style:italic;
+			text-align:center;
+			color:$grey;
+			position:absolute;
+			bottom:$sm;
+			width:870px;
 		}
 	}
 }
