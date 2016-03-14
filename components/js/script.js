@@ -19,7 +19,7 @@ S.ready(function(){
 	var didScroll;
 	var lastScrollTop = 0;
 	var delta = 5;
-	var navbarHeight = Number(s('header').css('height')[0].substr(0,s('header').css('height')[0].length - 2));
+	var navbarHeight = 46;
 
 	window.addEventListener('scroll', function(){
 		didScroll = true;

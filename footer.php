@@ -42,9 +42,8 @@
 			<span class="disclaimer">You'll receive updates on the best stories, and can cancel anytime! </span>
 		</div>
 	</div>
-
-	<script src="components/lib/slimpickin/dist/slimpickin.min.js"></script>
-	<script src="components/script.js"></script>
-	<script src="//localhost:35729/livereload.js"></script>
+	
 </body>
+
+<?php wp_footer() ?>
 </html>

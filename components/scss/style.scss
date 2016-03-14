@@ -131,6 +131,11 @@ body{
 	font-family: $body;
 }
 
+a{
+	text-decoration:none;
+	color:inherit;
+}
+
 p{
 	@include copy();
 	margin-bottom:$reg;
@@ -377,7 +382,8 @@ input[type="submit"]{
 			clear:right;
 
 			img{
-				width:100%;
+				width:100% !important;
+				height:auto !important;
 			}
 
 			.title{

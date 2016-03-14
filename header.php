@@ -9,7 +9,7 @@
 <body>
 	<header>
 		<div class="wrapper">
-			<img src="components/img/logo-long-04.svg" alt="The Free Post" class="logo">
+			<img src=" <?php echo get_template_directory_uri(); ?>/components/img/logo-long-04.svg" alt="The Free Post" class="logo">
 
 			<nav>
 				<ul>
@@ -19,11 +19,19 @@
 					<li class="section-menu">
 						Sections&#9660;
 						<ul class="section-nav">
-							<li><a href="">Tech</a></li>
-							<li><a href="">Business</a></li>
-							<li><a href="">Politics</a></li>
-							<li><a href="">Entertainment</a></li>
-							<li><a href="">Arts</a></li>
+							<?php 
+
+							$numOfCategories = sizeof(get_categories());
+							$index = 0;
+
+							while($index < $numOfCategories){
+								$catName = get_categories()[$index]->name;
+							?>
+							<li><a href="<?php echo get_category_link(get_cat_ID($catName)); ?>"><?php echo $catName; ?></a></li>
+							<?php
+								$index++;
+							}
+							 ?>
 						</ul>
 					</li>
 				</ul>

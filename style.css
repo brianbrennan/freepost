@@ -48,6 +48,10 @@ table {
 body {
   font-family: 'Droid Serif', serif; }
 
+a {
+  text-decoration: none;
+  color: inherit; }
+
 p {
   color: #3A4750;
   line-height: 1.8;
@@ -282,7 +286,8 @@ input[type="submit"] {
       min-height: 330px;
       clear: right; }
       .collection .article img {
-        width: 100%; }
+        width: 100% !important;
+        height: auto !important; }
       .collection .article .title {
         font-size: 22px;
         margin: 8px 0; }
