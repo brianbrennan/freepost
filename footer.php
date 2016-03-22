@@ -2,26 +2,19 @@
 		<div class="wrapper">
 			<nav>
 				<ul>
-					<li>Home</li>
+					<li><a href="<?php echo get_site_url();  ?>">Home</a></li>
 					<li>Recent</li>
 					<li>Top</li>
 					<li>Popular</li>
 				</ul>
 				<ul>
-					<li>Sections</li>
+					<li><a href="<?php echo get_site_url();  ?>/category/">Sections</a></li>
 					<ul>
-						<li>Tech</li>
-						<li>Business</li>
-						<li>Politics</li>
-						<li>Entertainment</li>
-						<li>Arts</li>
+						<?php wp_list_categories('title_li='); ?>
 					</ul>
 				</ul>
 				<ul>
-					<li>About</li>
-					<li>Contributors</li>
-					<li>FAQ</li>
-					<li>Contact</li>
+					<?php wp_list_pages('title_li='); ?>
 				</ul>
 			</nav>
 

@@ -62,7 +62,8 @@ S.ready(function(){
 	//-----------------------------------------------------------------Newsletter popup
 
 	var timeOnPageStart = Date.now();
-	var panelShown = false
+	var panelShown = getCookie('alreadyShownPanel') == 'true' ? true : false;
+	console.log(panelShown);
 
 	// Exit intent
 	function addEvent(obj, evt, fn) {
@@ -73,9 +74,27 @@ S.ready(function(){
 			obj.attachEvent("on" + evt, fn);
 		}
 	}
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expires = "expires="+d.toUTCString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0; i<ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1);
+			if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+		}
+		return "";
+	}
 	// Exit intent trigger
 	addEvent(document, 'mouseout', function(evt) {
-		if (evt.toElement == null && evt.relatedTarget == null && !panelShown ) {
+		if (evt.toElement == null && evt.relatedTarget == null && !panelShown && Date.now() - timeOnPageStart > 3000) {
 			s('.overlay').addClass('active');
 			panelShown = true;
 		};
@@ -84,6 +103,7 @@ S.ready(function(){
 
 	s('.panel .close').on('click', function(){
 		s('.overlay').removeClass('active');
+		setCookie('alreadyShownPanel',true,31);
 	});
 
 	//-----------------------------------------------------------------Article Collection Height

@@ -1,5 +1,5 @@
+	<?php get_header(); ?>
 	
-	<?php include 'header.php' ?>
 
 	<div class="home">
 
@@ -9,40 +9,49 @@
 					<?php 
 
 					$sticky = get_option( 'sticky_posts' );
-					$query = new WP_Query( 'p=' . $sticky[0] );
+					rsort( $sticky );
+					$sticky = array_slice( $sticky, 0, 5 );
+					$the_query = new WP_Query( array( 'post__in' => $sticky, 'ignore_sticky_posts' => 1 ) );
+					if ( $the_query->have_posts() ) {
+						$the_query->the_post();
 
-					 ?>
+					?>
 					<div class="shown">
-						<img src="https://images.unsplash.com/photo-1454678904372-2ca94103eca4?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925" alt="">
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="info">
-							<h2 class="title">Sanders Crashes and Berns</h2>
-							<h4 class="author"><span>by</span> Brian Brennan</h4>
+
+							<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							<h4 class="author"><span>by</span><a href=" <?php the_author_link(); ?> "> <?php the_author(); ?></a></h4>
 							<p class="quick-description">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eos animi consequuntur in fugit hic aperiam commodi quo architecto! Consequuntur quis minus, temporibus praesentium at. Temporibus, deserunt ipsa consequuntur voluptas.
+								<?php the_excerpt(); ?>
 							</p>
 							<div class="rate-bar">
 								<div class="comment-note">
 									<img src="<?php echo get_template_directory_uri(); ?>/components/img/comments-05.svg" alt="">
-									<span>122</span>
+									<span><?php echo  get_comments_number(); ?></span>
 								</div>
 							</div>
 						</div>
 					</div>
+					<?php } ?>
+
+
 					<div class="featured-bar">
 						<ul>
-							<li>It's All Ogre Now</li>
+							<?php 					
+								while ( $the_query->have_posts() ) {
+									$the_query->the_post();
+								
+							?>
+							<a href="<?php the_permalink(); ?>"><li><?php the_title(); ?></li></a>
 							<div class="divide-line"></div>
-							<li>When is enough, enough?</li>
-							<div class="divide-line"></div>
-							<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-							<div class="divide-line"></div>
-							<li>Some other utter garbage</li>	
+							<?php } wp_reset_postdata(); ?>	
 						</ul>
 					</div>
 				</div>
-				<div class="popular collection">
+				<!-- <div class="popular collection">
 					<div class="pop-line"><span></span>Popular<span></span></div>
-					<div class="article">
+					<div class="article"> -->
 <!-- 						<a href="<?php echo get_the_permalink(); ?>"><?php the_post_thumbnail()?></a>
 						<h5 class="title"><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h5>
 						<h6 class="author"><span>by</span><a href=" <?php the_author_link(); ?> "> <?php the_author(); ?></a></h6>
@@ -53,14 +62,49 @@
 							</div>
 						</div>
 					</div> -->
+	
 
+				<div class="popular collection">
 					<?php
-						wpp_get_mostpopular();
+
+						$popular_posts_args = array(
+							'header' => 'Popular',
+							'header_start'=> '<div class="pop-line"><span></span>',
+							'header_end' => '<span></span></div>',
+							'limit' => 4,
+							'range' => 'daily',
+							'freshness' => 0,
+							'order_by' => 'avg',
+							'post_type' => 'post',
+							'thumbnail_width' => 30,
+							'thumbnail_height' => 30,
+							'stats_author' => 1,
+							'post_html' => '<div class="article">
+												<a href="{url}">
+													<img src="' . wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()) ) .'"/>
+												</a>
+												<h5 class="title"><a href="{url}">{title}</a></h5>
+												<h6 class="author"><span>by</span> {author}</h6>
+												<div class="rate-bar">
+													<div class="comment-note">
+													<img src="' . get_template_directory_uri() . '/components/img/comments-05.svg"/>
+													<span>' .  get_comments_number() . '</span>
+													</div>
+												</div>
+											</div>',
+							'wpp_start' => '',
+							'wpp_end' => ''
+						);
+
+
+						 wpp_get_mostpopular($popular_posts_args);
 					?>
+				</div>
+
 
 						<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 					
-				</div>
+				<!-- </div> -->
 				<div class="right-banner-ad">
 					test
 				</div>

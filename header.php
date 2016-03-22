@@ -14,8 +14,10 @@
 			<nav>
 				<ul>
 					<li><a href="">Home</a></li>
+					<li><a href="">Popular</a></li>
 					<li><a href="">Recent</a></li>
 					<li><a href="">Top</a></li>
+
 					<li class="section-menu">
 						Sections&#9660;
 						<ul class="section-nav">

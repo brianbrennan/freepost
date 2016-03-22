@@ -127,7 +127,8 @@ input[type="submit"] {
   text-transform: uppercase;
   color: #FFF;
   border: none;
-  padding: 15px; }
+  padding: 15px;
+  cursor: pointer; }
 
 .content {
   background-color: #FFF;
@@ -199,6 +200,9 @@ input[type="submit"] {
         display: block;
         margin: 15px 0;
         font-size: 12px; }
+        header .section-nav li:hover {
+          background-color: #303841;
+          color: #FFF; }
       header .section-nav.active {
         display: block;
         position: absolute;
@@ -221,7 +225,8 @@ input[type="submit"] {
     float: left;
     margin-bottom: 30px; }
     .shown img {
-      width: 100%; }
+      width: 100%;
+      height: auto; }
     .shown .title {
       color: #303841;
       line-height: 1;
@@ -278,6 +283,14 @@ input[type="submit"] {
         background-color: #303841;
         width: 90px;
         margin: 3px 15px; }
+    .collection .wpp-list .article:nth-child(odd) {
+      float: left;
+      width: 47.3684210526%;
+      float: left;
+      margin-right: 5.2631578947%; }
+    .collection .wpp-list .article:nth-child(even) {
+      float: right;
+      margin-right: 0; }
     .collection .article {
       width: 47.3684210526%;
       float: left;
@@ -390,14 +403,37 @@ input[type="submit"] {
     margin: 8px 15px; }
   .portion {
     position: relative; }
-    .portion.left {
-      float: left;
-      width: 580px; }
+    .portion p {
+      width: 580px;
+      display: block; }
     .portion.right {
       float: right;
       width: 440px; }
     .portion.full {
       width: 100%; }
+  .single .title {
+    margin-bottom: 15px; }
+  .single .date {
+    margin-bottom: 30px; }
+  .single img {
+    height: auto; }
+  .single .top-thumbnail .attachment-top-thumbnail {
+    width: 100% !important; }
+  .single .top-thumbnail .caption {
+    margin-bottom: 30px;
+    margin-top: 15px; }
+  .single .caption, .single .wp-caption-text {
+    font-family: 'Droid Serif', serif;
+    font-style: italic;
+    margin-top: 8px;
+    display: block;
+    color: #3A4750;
+    font-size: 12px; }
+  .single p a {
+    color: #3498db;
+    text-decoration: underline; }
+  .text {
+    margin-top: 45px; }
   .page .author {
     font-size: 16px; }
   .page .date {
@@ -438,26 +474,67 @@ input[type="submit"] {
         .comments .signed-in-comment textarea:focus {
           outline: none;
           border-color: #303841; }
-    .comments .comment .username {
+    .comments small {
+      display: block;
       color: #3A4750;
       line-height: 1.8;
       font-family: 'Droid Serif', serif;
-      font-weight: 700; }
-    .comments .comment .comment-content {
-      margin-bottom: 15px; }
-    .comments .comment .respond-bar {
-      color: #303841;
-      line-height: 1;
-      font-family: 'Montserrat', serif;
-      letter-spacing: 4px;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 23px; }
-    .comments .comment .replies {
-      border-left: 1px solid #3A4750; }
-      .comments .comment .replies .comment {
-        margin-left: 30px; }
+      text-transform: none;
+      font-weight: normal;
+      font-size: 16px;
+      letter-spacing: 0; }
+      .comments small a {
+        text-decoration: underline;
+        color: #3498db; }
+    .comments .comment-form {
+      margin-bottom: 60px;
+      display: block; }
+      .comments .comment-form label {
+        display: none; }
+      .comments .comment-form textarea {
+        padding: 8px;
+        font-family: 'Droid Serif', serif;
+        color: #3A4750; }
+      .comments .comment-form .comment-form-comment {
+        margin-bottom: 8px; }
+      .comments .comment-form .form-submit {
+        margin-bottom: 0; }
+    .comments .comment {
+      position: relative; }
+      .comments .comment .username, .comments .comment cite.fn {
+        color: #3A4750;
+        line-height: 1.8;
+        font-family: 'Droid Serif', serif;
+        font-weight: 700;
+        display: block; }
+      .comments .comment .says {
+        display: none; }
+      .comments .comment img {
+        display: none; }
+      .comments .comment .comment-meta {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #3A4750;
+        line-height: 1.8;
+        font-family: 'Droid Serif', serif;
+        font-size: 12px; }
+      .comments .comment .comment-content, .comments .comment p {
+        margin-bottom: 15px;
+        max-width: 540px; }
+      .comments .comment .respond-bar, .comments .comment .reply {
+        color: #303841;
+        line-height: 1;
+        font-family: 'Montserrat', serif;
+        letter-spacing: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 23px; }
+      .comments .comment .replies, .comments .comment .comment {
+        border-left: 1px solid #3A4750;
+        margin-left: 30px;
+        padding-left: 30px; }
     .comments .show-more {
       color: #303841;
       line-height: 1;
@@ -554,9 +631,10 @@ input[type="submit"] {
 
 .image {
   float: right;
-  margin-bottom: 120px; }
+  margin-bottom: 30px; }
   .image img {
-    max-width: 100%; }
+    max-width: 100%;
+    height: auto; }
   .image .caption {
     font-family: 'Droid Serif', serif;
     font-style: italic;

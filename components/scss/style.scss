@@ -34,6 +34,7 @@ $grey:				#3A4750;
 $lightGrey:			#ccc;
 $lighterGrey:		#eee;
 $white:				#FFF;
+$blue:				#3498db;
 
 //-------------------------Typeface
 
@@ -119,6 +120,7 @@ $max:				1440px;
 	color:$white;
 	border:none;
 	padding:$sm;
+	cursor:pointer;
 }
 
 //--------------------------------------------------Styles
@@ -272,6 +274,11 @@ input[type="submit"]{
 				display:block;
 				margin:$sm 0;
 				font-size:$smFontSize;
+
+				&:hover{
+					background-color:$black;
+					color:$white;
+				}
 			}
 
 			&.active{
@@ -313,6 +320,7 @@ input[type="submit"]{
 		margin-bottom:$reg;
 		img{
 			width:100%;
+			height:auto;
 		}
 		.title{
 			@include headline();
@@ -375,6 +383,16 @@ input[type="submit"]{
 			}
 		}
 
+		.wpp-list .article{
+			&:nth-child(odd){
+				float:left;
+				@include span(2);
+			}
+			&:nth-child(even){
+				@include last();
+			}
+		}
+
 		.article{
 			@include span(2);
 			padding:$tny $tny $sm $tny;
@@ -399,7 +417,6 @@ input[type="submit"]{
 				@include last();
 			}
 		}
-
 		.comment-note{
 			font-size:$smFontSize;
 
@@ -409,6 +426,8 @@ input[type="submit"]{
 			}
 		}
 	}
+
+	
 
 	.right-banner-ad{
 		width:$xxl + $reg;
@@ -534,9 +553,9 @@ input[type="submit"]{
 
 	.portion{
 		position:relative;
-		&.left{
-			float:left;
+		p {
 			width:580px;
+			display:block;
 		}
 		&.right{
 			float:right;
@@ -545,6 +564,53 @@ input[type="submit"]{
 		&.full{
 			width:100%;
 		}
+	}
+
+	.single{
+
+		.title{
+			margin-bottom:$sm;
+		}
+
+		.date{
+			margin-bottom:$reg;
+		}
+
+		img{
+			height:auto;
+		}
+
+		.top-thumbnail{
+
+			.attachment-top-thumbnail{
+				width:100% !important;
+
+			}
+
+			.caption{
+				margin-bottom: $reg;
+				margin-top:$sm;
+			}
+
+		}
+
+		.caption, .wp-caption-text{
+			font-family:$body;
+			font-style:italic;
+			margin-top:$tny;
+			display:block;
+			color:$grey;
+			font-size:$smFontSize;
+		}
+
+		p a{
+			color:$blue;
+			text-decoration:underline;
+		}
+	}
+
+	.text{
+		margin-top:$med;
 	}
 
 	.page{
@@ -596,27 +662,85 @@ input[type="submit"]{
 			}
 		}
 
+		small{
+			display:block;
+			@include copy();
+			text-transform:none;
+			font-weight:normal;
+			font-size:$regFontSize;
+			letter-spacing:0;
+
+			a{
+				text-decoration: underline;
+				color:$blue;
+			}
+
+		}
+
+		.comment-form{
+			margin-bottom:$lg;
+			display:block;
+			label{
+				display:none;
+			}
+
+			textarea{
+				padding:$tny;
+				font-family:$body;
+				color:$grey;
+			}
+
+			.comment-form-comment{
+				margin-bottom:$tny;
+			}
+
+			.form-submit{
+				margin-bottom:0;
+			}
+
+
+		}
+
 		.comment{
-			.username{
+			position:relative;
+			.username, cite.fn{
 				@include copy();
 				font-weight:700;
+				
+				display:block;
 			}
 
-			.comment-content{
+			.says{
+				display:none;
+			}
+
+			img{
+				display:none;
+			}
+
+			.comment-meta{
+				position:absolute;
+				top:0;
+				right:0;
+				@include copy();
+				font-size:$smFontSize;
+			}
+
+			.comment-content, p{
 				margin-bottom:$sm;
+				max-width:540px;
 			}
 
-			.respond-bar{
+			.respond-bar, .reply{
 				@include accent();
 				font-size:$smFontSize;
 				margin-bottom:$sm + $tny;
 			}
 
-			.replies{
+			.replies, .comment{
 				border-left:1px solid $grey;
-				.comment{
-					margin-left:$reg;
-				}
+				margin-left:$reg;
+				padding-left:$reg;
 			}
 		}
 
@@ -724,10 +848,11 @@ input[type="submit"]{
 
 .image{
 	float:right;
-	margin-bottom:$xxl;
+	margin-bottom:$reg;
 
 	img{
 		max-width:100%;
+		height:auto;
 	}
 
 	.caption{
