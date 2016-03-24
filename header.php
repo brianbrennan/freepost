@@ -9,7 +9,14 @@
 <body>
 	<header>
 		<div class="wrapper">
-			<a href="<?php echo site_url(); ?>"><img src=" <?php echo get_template_directory_uri(); ?>/components/img/logo-long-04.svg" alt="The Free Post" class="logo"></a>
+			<a href="<?php echo site_url(); ?>"><img src=" <?php echo get_template_directory_uri(); ?>/components/img/logo-large-01.svg" alt="The Free Post" class="logo"></a>
+			<a href="<?php echo site_url(); ?>"><img src=" <?php echo get_template_directory_uri(); ?>/components/img/logo-small-01.svg" alt="The Free Post" class="logo-small"></a>
+
+			<div class="nav-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 
 			<nav>
 				<ul>
@@ -29,7 +36,7 @@
 							while($index < $numOfCategories){
 								$catName = get_categories()[$index]->name;
 							?>
-							<li><a href="<?php echo get_category_link(get_cat_ID($catName)); ?>"><?php echo $catName; ?></a></li>
+							<a href="<?php echo get_category_link(get_cat_ID($catName)); ?>"><li><?php echo $catName; ?></li></a>
 							<?php
 								$index++;
 							}

@@ -232,9 +232,18 @@ input[type="submit"]{
 		@include transition(0.2s ease-in-out);
 
 		.logo{
-			width:250px;
+			height:$reg;
+			width:auto;
 			margin-top:$mic;
-			@include transition(0.2s ease-in-out);
+			
+		}
+
+		.logo-small{
+			display:none;
+		}
+
+		.nav-toggle{
+			display:none;
 		}
 
 		nav{
@@ -577,6 +586,7 @@ input[type="submit"]{
 
 		.title{
 			margin-bottom:$sm;
+			margin-top:$sm;
 		}
 
 		.date{
@@ -585,10 +595,6 @@ input[type="submit"]{
 
 		.author{
 			font-size:$regFontSize;
-		}
-
-		img{
-			height:auto;
 		}
 
 		.top-thumbnail{
@@ -860,6 +866,10 @@ input[type="submit"]{
 	.wrapper{
 		@include container(1140px);
 	}
+
+	img{
+		height:auto;
+	}
 }
 
 
@@ -905,9 +915,194 @@ input[type="submit"]{
 		height:200px;
 		margin-bottom:$reg;
 	}
+
+	.single{
+		img{
+			max-width:960px !important;
+			height:auto;
+		}
+
+		.wp-caption{
+			max-width:960px;
+			width:100% !important;
+		}
+	}
 }
 
 @include breakpoint($small){
+
+	header{
+
+		.logo{
+			display:none;
+		}
+
+		.logo-small{
+			display:inline-block;
+			height:$lg;
+			margin-left:$reg;
+		}
+
+		nav{
+
+			visibility:hidden;
+			opacity:0;
+			position:fixed;
+			background: rgba($black, 0.97);
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			z-index:100;
+			@include transition(0.3s);
+			animation-name:mobileSlideNav;
+			animation-duration:0.2s;
+			color:$white;
+			text-align:center;
+
+			&.active{
+				visibility:visible;
+				opacity:1;
+				left:0;
+				animation-name:mobileSlideNavOut;
+				animation-duration:0.2s;
+			}
+
+			a{
+				text-decoration: none;
+			}
+
+			li{
+				padding:$reg;
+				@include accent();
+				display:block;
+				color:$white;
+				font-size:$lgFontSize;
+				@include transition(0.2s);
+
+				&:hover{
+
+					background-color:$black;
+				}
+			}
+		}
+
+		.logo{
+			margin-left:$reg;
+		}
+
+		.nav-toggle{
+			display:block;
+			float:right;
+			position:relative;
+			cursor:pointer;
+			z-index:200;
+			margin-top:-($tny);
+			margin-bottom:$tny;
+
+			//hamburger animation
+			width: $xl;
+			height: 60px;
+			@include transform(0deg);
+			@include transition(0.3s ease-in-out);
+			@include transition(0s background-color);
+			cursor:pointer;
+
+			span{
+				display: block;
+				position: absolute;
+				height: 9px;
+				width: calc(100% - 30px);
+				background:$black;
+				opacity: 1;
+				left: $sm;
+				@include transform(0deg);
+				@include transition(0.25s ease-in-out);
+
+				&:nth-child(1){
+					top:15px;
+					@include transform-origin(left center);
+				}
+
+				&:nth-child(2){
+					top:33px;
+					@include transform-origin(left center);
+				}
+
+				&:nth-child(3){
+					top:51px;
+					@include transform-origin(left center);
+				}
+			}
+
+			&.active{
+				color:$white;
+				background-color:rgba($black, 0);
+
+				span{
+					background-color: $white;
+					@include transition(0.2s);
+					&:nth-child(1){
+						top:12px;
+						left:23px;
+						@include transform(rotate(45deg));
+					}
+
+					&:nth-child(2){
+						width:0%;
+						opacity:0;
+					}
+
+					&:nth-child(3){
+						top:54px;
+						left:23px;
+						@include transform(rotate(-45deg));
+					}
+				}
+			}
+		}
+
+		.section-menu{
+			cursor:pointer;
+		}
+
+		.section-menu.active{
+			background:none;
+			box-shadow:none;
+		}
+
+		.section-nav{
+			background: none;
+			box-shadow:none;
+			
+
+			li{
+				display:block;
+				margin:$sm 0;
+				font-size:$smFontSize;
+
+				&:hover{
+					background-color:$black;
+					color:$white;
+				}
+			}
+
+			&.active{
+				display:block;
+				position:absolute;
+				opacity:1;
+				right:0
+			}
+		}
+	}
+
+	.content{
+		margin-top:$lg;
+	}
+
+	img{
+		height:auto;
+	}
 	.wrapper{
 		@include container(100%);
 	}
@@ -916,21 +1111,24 @@ input[type="submit"]{
 		width:100%;
 	}
 
+	.divide-line{
+		display:none;
+	}
+
+	.pop-line{
+		span{
+			display:none !important;
+		}
+	}
+
 	.featured-bar{
 		width:100%;
+		margin-bottom:$reg;
 
 		li{
 			display:inline-block;
 			width:$xxl + $lg;
 		}
-	}
-
-	.divide-line{
-		height:$xl;
-		background-color:$lightGrey;
-		width:1px;
-		margin:$tny;
-		display:inline-block;
 	}
 
 	.collection{
@@ -952,6 +1150,42 @@ input[type="submit"]{
 		margin-bottom:$reg;
 	}
 
+	.single{
+		img{
+			max-width:580px !important;
+			height:auto;
+		}
 
+		.portion.left{
+			max-width:540px;
+			width:100%;
+
+			p{
+				max-width:100%;
+			}
+		}
+	}
+
+	.category .content{
+		.article{
+			@include span(4);
+		}
+	}
+
+	.page-title{
+		margin:$reg;
+	}
+
+
+
+	footer{
+		ul{
+			width:50%;
+			margin:0;
+			float:left;
+			margin-bottom:$reg;
+
+		}
+	}
 }
 

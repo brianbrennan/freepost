@@ -14,6 +14,29 @@ S.ready(function(){
 		s('.section-menu').removeClass('active');
 	});
 
+	//----------------------------------------------------------------------------------------Mobile Nav
+
+	s('.nav-toggle').on('click', function(){
+		if(window.innerWidth <= 960){
+			if(!s('header nav').hasClass('active')[0])
+				s('header nav').addClass('active');
+			else
+				s('header nav').removeClass('active');
+			if(!s(this).hasClass('active')[0])
+				s(this).addClass('active');
+			else
+				s(this).removeClass('active');
+		}
+
+	});
+
+	s('.nav-list a').on('click', function(){
+		if(window.innerWidth <= 960){
+			s('.nav-list').removeClass('active');
+			s('.nav-toggle').removeClass('active');
+		}
+	});
+
 	//---------------Hide the Header on Scrolling Down
 
 	var didScroll;
