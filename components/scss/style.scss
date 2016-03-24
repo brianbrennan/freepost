@@ -65,7 +65,10 @@ $xlFontSize:		48px;
 
 //-----------------------Breakpoints
 
-$max:				1440px;
+$max:				1140px;
+$desktop:			960px 1140px;
+$small:				0px 960px;
+$all:				0px;
 
 
 
@@ -210,14 +213,12 @@ input[type="submit"]{
 	}
 }
 
+.page, .single{
+	min-height:68vh;
+}
 
 
-//---------------------------------------------------Header Styles
-
-@include breakpoint($max){
-	.wrapper{
-		@include container(1140px);
-	}
+@include breakpoint($all){
 
 	header{
 		padding: $tny 0;
@@ -229,6 +230,7 @@ input[type="submit"]{
 		z-index:10;
 
 		@include transition(0.2s ease-in-out);
+
 		.logo{
 			width:250px;
 			margin-top:$mic;
@@ -512,8 +514,13 @@ input[type="submit"]{
 				@include last();
 			}
 
+			p{
+				margin-bottom:$sm;
+			}
+
 			img{
 				max-width: 100%;
+				height:auto;
 			}
 
 			.title{
@@ -576,6 +583,10 @@ input[type="submit"]{
 			margin-bottom:$reg;
 		}
 
+		.author{
+			font-size:$regFontSize;
+		}
+
 		img{
 			height:auto;
 		}
@@ -612,6 +623,8 @@ input[type="submit"]{
 	.text{
 		margin-top:$med;
 	}
+
+
 
 	.page{
 		.author{
@@ -843,26 +856,102 @@ input[type="submit"]{
 	}
 }
 
-
-
-
-.image{
-	float:right;
-	margin-bottom:$reg;
-
-	img{
-		max-width:100%;
-		height:auto;
-	}
-
-	.caption{
-		font-family:$body;
-		font-style:italic;
-		margin-top:$tny;
-		display:block;
-		color:$grey;
-		font-size:$smFontSize;
+@include breakpoint($max){
+	.wrapper{
+		@include container(1140px);
 	}
 }
 
+
+@include breakpoint($desktop){
+	.wrapper{
+		@include container(100%);
+	}
+
+	header{
+
+		.logo{
+			margin-left:$reg;
+		}
+
+		nav{
+			li{
+				margin-right:$reg;
+			}
+		}
+
+		.section-nav{		
+			&.active{
+
+				right:0
+			}
+		}
+	}//end of header
+
+	.shown{
+		width:calc(100% - 160px);
+	}
+
+	.featured-bar{
+		width:$xxl + $reg;
+	}
+
+	.collection{
+		width:100%;
+	}
+
+	.right-banner-ad{
+		width:100%;
+		height:200px;
+		margin-bottom:$reg;
+	}
+}
+
+@include breakpoint($small){
+	.wrapper{
+		@include container(100%);
+	}
+
+	.shown{
+		width:100%;
+	}
+
+	.featured-bar{
+		width:100%;
+
+		li{
+			display:inline-block;
+			width:$xxl + $lg;
+		}
+	}
+
+	.divide-line{
+		height:$xl;
+		background-color:$lightGrey;
+		width:1px;
+		margin:$tny;
+		display:inline-block;
+	}
+
+	.collection{
+		width:100%;
+
+		.article{
+			@include span(4);
+			width:100% !important;
+		}
+	}
+
+	.wpp-list .article:nth-child(odd){
+		@include span(4);
+	}
+
+	.right-banner-ad{
+		width:100%;
+		height:200px;
+		margin-bottom:$reg;
+	}
+
+
+}
 

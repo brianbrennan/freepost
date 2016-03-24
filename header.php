@@ -9,14 +9,14 @@
 <body>
 	<header>
 		<div class="wrapper">
-			<img src=" <?php echo get_template_directory_uri(); ?>/components/img/logo-long-04.svg" alt="The Free Post" class="logo">
+			<a href="<?php echo site_url(); ?>"><img src=" <?php echo get_template_directory_uri(); ?>/components/img/logo-long-04.svg" alt="The Free Post" class="logo"></a>
 
 			<nav>
 				<ul>
-					<li><a href="">Home</a></li>
+					<li><a href="<?php echo site_url(); ?>">Home</a></li>
+					<li><a href="">Top</a></li>
 					<li><a href="">Popular</a></li>
 					<li><a href="">Recent</a></li>
-					<li><a href="">Top</a></li>
 
 					<li class="section-menu">
 						Sections&#9660;

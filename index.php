@@ -33,7 +33,7 @@
 							</div>
 						</div>
 					</div>
-					<?php } ?>
+					<?php } wp_reset_postdata(); ?>
 
 
 					<div class="featured-bar">
@@ -85,12 +85,7 @@
 												</a>
 												<h5 class="title"><a href="{url}">{title}</a></h5>
 												<h6 class="author"><span>by</span> {author}</h6>
-												<div class="rate-bar">
-													<div class="comment-note">
-													<img src="' . get_template_directory_uri() . '/components/img/comments-05.svg"/>
-													<span>' .  get_comments_number() . '</span>
-													</div>
-												</div>
+												
 											</div>',
 							'wpp_start' => '',
 							'wpp_end' => ''

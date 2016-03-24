@@ -3,18 +3,37 @@
 			<nav>
 				<ul>
 					<li><a href="<?php echo get_site_url();  ?>">Home</a></li>
-					<li>Recent</li>
 					<li>Top</li>
 					<li>Popular</li>
+					<li>Recent</li>
 				</ul>
 				<ul>
-					<li><a href="<?php echo get_site_url();  ?>/category/">Sections</a></li>
+					<li>Sections</li>
 					<ul>
 						<?php wp_list_categories('title_li='); ?>
 					</ul>
 				</ul>
 				<ul>
-					<?php wp_list_pages('title_li='); ?>
+					<?php 
+					$args = array(
+						'title_li' => '',
+						'exclude' => '42,45,47,49,51' //edit this for the login pages
+						);
+					wp_list_pages($args); 
+					?>
+				</ul>
+					
+				<ul>
+					<?php if(is_user_logged_in()){ ?>
+						<li><a href="<?php echo site_url() ?>/profile">Edit Profile</a></li>
+						<li><a href="<?php echo site_url() ?>/logout">Logout</a></li>
+					<?php } else {?>
+						<li><a href="<?php echo site_url() ?>/login">Login</a></li>
+						<li><a href="<?php echo site_url() ?>/register">Register</a></li>
+						<li><a href="<?php echo site_url() ?>/recover-password">Recover Password</a></li>
+					<?php } ?>
+
+					
 				</ul>
 			</nav>
 
