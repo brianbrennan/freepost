@@ -461,12 +461,11 @@ input[type="submit"]{
 
 	footer{
 		background-color: $lighterGrey;
-		padding:$reg;
+		padding:$lg;
 
 		ul{
 			display:inline-block;
 			@include span(1);
-			margin-left:$reg;
 
 			&:nth-child(4n){
 				@include last();
@@ -513,7 +512,7 @@ input[type="submit"]{
 
 	//-------------------------------------------------------------Category Page
 
-	.category{
+	.category, .recent, .top{
 		.article{
 			@include span(2);
 			min-height:370px;
@@ -563,6 +562,24 @@ input[type="submit"]{
 		background-color:$black;
 		display:inline-block;
 		margin:$tny $sm;
+	}
+
+	//----------------------------------------------------------Popular Page
+
+	.popular{
+		.article{
+			@include span(2);
+			margin:$reg 0;
+
+			&:nth-child(even){
+				@include last();
+			}
+
+			.title{
+				font-size:$lgFontSize;
+
+			}
+		}
 	}
 
 	//----------------------------------------------------------Page Styles
@@ -1166,7 +1183,7 @@ input[type="submit"]{
 		}
 	}
 
-	.category .content{
+	.category .content, .recent .content, .top .content{
 		.article{
 			@include span(4);
 		}

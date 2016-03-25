@@ -330,13 +330,12 @@ input[type="submit"] {
     text-transform: uppercase; }
   footer {
     background-color: #eee;
-    padding: 30px; }
+    padding: 60px; }
     footer ul {
       display: inline-block;
       width: 21.0526315789%;
       float: left;
-      margin-right: 5.2631578947%;
-      margin-left: 30px; }
+      margin-right: 5.2631578947%; }
       footer ul:nth-child(4n) {
         float: right;
         margin-right: 0; }
@@ -362,30 +361,30 @@ input[type="submit"] {
       margin-bottom: 15px; }
     .archive .article .comment-note img {
       margin-right: 15px; }
-  .category .article {
+  .category .article, .recent .article, .top .article {
     width: 47.3684210526%;
     float: left;
     margin-right: 5.2631578947%;
     min-height: 370px;
     margin-bottom: 30px; }
-    .category .article:nth-child(even) {
+    .category .article:nth-child(even), .recent .article:nth-child(even), .top .article:nth-child(even) {
       float: right;
       margin-right: 0; }
-    .category .article p {
+    .category .article p, .recent .article p, .top .article p {
       margin-bottom: 15px; }
-    .category .article img {
+    .category .article img, .recent .article img, .top .article img {
       max-width: 100%;
       height: auto; }
-    .category .article .title {
+    .category .article .title, .recent .article .title, .top .article .title {
       margin: 8px 0; }
-    .category .article .comment-note img {
+    .category .article .comment-note img, .recent .article .comment-note img, .top .article .comment-note img {
       width: 23px; }
-    .category .article.featured {
+    .category .article.featured, .recent .article.featured, .top .article.featured {
       width: 100%;
       float: left;
       margin-left: 0;
       margin-right: 0; }
-      .category .article.featured .comment-note img {
+      .category .article.featured .comment-note img, .recent .article.featured .comment-note img, .top .article.featured .comment-note img {
         width: 30px; }
   .page-title {
     color: #303841;
@@ -401,6 +400,16 @@ input[type="submit"] {
     background-color: #303841;
     display: inline-block;
     margin: 8px 15px; }
+  .popular .article {
+    width: 47.3684210526%;
+    float: left;
+    margin-right: 5.2631578947%;
+    margin: 30px 0; }
+    .popular .article:nth-child(even) {
+      float: right;
+      margin-right: 0; }
+    .popular .article .title {
+      font-size: 30px; }
   .portion {
     position: relative; }
     .portion p {
@@ -879,7 +888,7 @@ input[type="submit"] {
     width: 100%; }
     .single .portion.left p {
       max-width: 100%; }
-  .category .content .article {
+  .category .content .article, .recent .content .article, .top .content .article {
     width: 100%;
     float: left;
     margin-left: 0;

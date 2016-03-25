@@ -23,7 +23,7 @@
 					<li><a href="<?php echo site_url(); ?>">Home</a></li>
 					<li><a href="">Top</a></li>
 					<li><a href="">Popular</a></li>
-					<li><a href="">Recent</a></li>
+					<li><a href="<?php echo site_url(); ?>/archive">Recent</a></li>
 
 					<li class="section-menu">
 						Sections&#9660;

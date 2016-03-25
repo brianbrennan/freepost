@@ -3,9 +3,9 @@
 			<nav>
 				<ul>
 					<li><a href="<?php echo get_site_url();  ?>">Home</a></li>
-					<li>Top</li>
-					<li>Popular</li>
-					<li>Recent</li>
+					<li><a href="<?php echo get_site_url();  ?>/top">Top</a></li>
+					<li><a href="<?php echo get_site_url();  ?>/popular">Popular</a></li>
+					<li><a href="<?php echo get_site_url();  ?>/recent">Recent</a></li>
 				</ul>
 				<ul>
 					<li>Sections</li>
@@ -17,7 +17,7 @@
 					<?php 
 					$args = array(
 						'title_li' => '',
-						'exclude' => '42,45,47,49,51' //edit this for the login pages
+						'exclude' => '42,45,47,49,51,58,60,62' //edit this for the login pages
 						);
 					wp_list_pages($args); 
 					?>
